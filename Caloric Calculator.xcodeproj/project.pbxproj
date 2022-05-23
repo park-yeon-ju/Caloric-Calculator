@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		827D657428328D940001C998 /* JobOfferWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827D656D28328D940001C998 /* JobOfferWrite.swift */; };
+		827D657928328D940001C998 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827D657228328D940001C998 /* MainView.storyboard */; };
 		82EBF73828328CC500938F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBF73728328CC500938F2C /* AppDelegate.swift */; };
 		82EBF73A28328CC500938F2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBF73928328CC500938F2C /* SceneDelegate.swift */; };
 		82EBF73C28328CC500938F2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EBF73B28328CC500938F2C /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		827D656D28328D940001C998 /* JobOfferWrite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobOfferWrite.swift; path = "../../프론트/JobOfferMain/JobOfferWrite.swift"; sourceTree = "<group>"; };
+		827D657228328D940001C998 /* MainView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainView.storyboard; path = "../../프론트/JobOfferMain/MainView.storyboard"; sourceTree = "<group>"; };
 		82EBF73428328CC500938F2C /* Caloric Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Caloric Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82EBF73728328CC500938F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82EBF73928328CC500938F2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 		82EBF73628328CC500938F2C /* Caloric Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				827D657228328D940001C998 /* MainView.storyboard */,
+				827D656D28328D940001C998 /* JobOfferWrite.swift */,
 				82EBF73728328CC500938F2C /* AppDelegate.swift */,
 				82EBF73928328CC500938F2C /* SceneDelegate.swift */,
 				82EBF73B28328CC500938F2C /* ViewController.swift */,
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82EBF74428328CC900938F2C /* LaunchScreen.storyboard in Resources */,
+				827D657928328D940001C998 /* MainView.storyboard in Resources */,
 				82EBF74128328CC900938F2C /* Assets.xcassets in Resources */,
 				82EBF73F28328CC500938F2C /* Main.storyboard in Resources */,
 			);
@@ -140,6 +147,7 @@
 			files = (
 				82EBF73C28328CC500938F2C /* ViewController.swift in Sources */,
 				82EBF73828328CC500938F2C /* AppDelegate.swift in Sources */,
+				827D657428328D940001C998 /* JobOfferWrite.swift in Sources */,
 				82EBF73A28328CC500938F2C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

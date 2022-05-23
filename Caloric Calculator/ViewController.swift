@@ -9,9 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var photoPopup: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        photoPopup.layer.cornerRadius = 10
+        
     }
 
 
