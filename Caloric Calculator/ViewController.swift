@@ -11,11 +11,21 @@ import AVFoundation
 
 class ViewController: UIViewController{
     @IBOutlet weak var dateTF: UILabel!
-
+    @IBOutlet weak var leftCal: UILabel!
+    @IBOutlet weak var addCal: UILabel!
+    @IBOutlet weak var minusCal: UILabel!
+    
+    var lC: String = "3000"
+    var aC: String = "0"
+    var mC: String = "0"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         todaysDate()
+        
+        self.leftCal.text = lC
+        self.addCal.text = aC
     }
     
     //오늘 날짜 받아와서 MainView 날짜 갱신

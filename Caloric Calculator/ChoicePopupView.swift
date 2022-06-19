@@ -21,9 +21,14 @@ class ChoicePopupView: UIViewController {
     }
     
     @IBAction func okBtn(_ sender: UIButton) {
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "MainView")
-                vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
-                vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
-                self.present(vcName!, animated: true, completion: nil)
+        /**/
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "MainView") as? ViewController
+         vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
+         vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+        vcName?.lC = "2513"
+        vcName?.aC = "487"
+ 
+         self.present(vcName!, animated: true, completion: nil)
+        
     }
 }

@@ -10,7 +10,10 @@ import UIKit
 class PhotoPopupView: UIViewController {
 
     @IBOutlet weak var photoView: UIImageView!
-
+    @IBOutlet weak var menu: UILabel!
+    @IBOutlet weak var weight: UILabel!
+    @IBOutlet weak var calorie: UILabel!
+    
     let pickerImage = UIImagePickerController()
     
     
@@ -18,6 +21,7 @@ class PhotoPopupView: UIViewController {
         super.viewDidLoad()
         
         pickerImage.delegate = self
+        
     }
 
     @IBAction func backBtn(_ sender: UIButton) {
@@ -72,6 +76,17 @@ class PhotoPopupView: UIViewController {
                 self.present(vcName!, animated: true, completion: nil)
     }
     
+    
+    func showInfo(){
+        if(photoView != nil){
+            print("it works")
+            menu.text = "제육볶음"
+            weight.text = "250g"
+            calorie.text = "487kcal"
+        }
+        
+    }
+    
 }
 
 extension PhotoPopupView : UIImagePickerControllerDelegate,UINavigationControllerDelegate{
@@ -82,6 +97,9 @@ extension PhotoPopupView : UIImagePickerControllerDelegate,UINavigationControlle
                 photoView.contentMode = .scaleAspectFill
                 photoView.clipsToBounds = true
                 }
+        showInfo()
                 dismiss(animated: true, completion: nil)
         }
+    
+    
 }
