@@ -27,7 +27,7 @@ class RecordView: UIViewController {
     //키보드 사용할 때 텍스트 필드 안가리게 해주는 메소드들
     override func viewWillAppear(_ animated: Bool) {
         self.addKeyboardNotifications()
-        menuName.text = menu
+        menuName.text = ":  " + menu
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.removeKeyboardNotifications()
@@ -85,9 +85,11 @@ class RecordView: UIViewController {
     
     @IBAction func cpltBtn(_ sender: UIButton) {
         
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "MainView")
-                vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
-                vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "MainView") as? ViewController
+            vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
+            vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+            vcName?.lC = "2020"
+            vcName?.aC = "980"
                 self.present(vcName!, animated: true, completion: nil)
     }
     

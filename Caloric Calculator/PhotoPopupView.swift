@@ -66,6 +66,7 @@ class PhotoPopupView: UIViewController {
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "ChoicePopupView")
                 vcName?.modalPresentationStyle = .overCurrentContext //전체화면으로 보이게 설정
                 vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+        
                 self.present(vcName!, animated: true, completion: nil)
     }
     
@@ -80,9 +81,9 @@ class PhotoPopupView: UIViewController {
     func showInfo(){
         if(photoView != nil){
             print("it works")
-            menu.text = "제육볶음"
-            weight.text = "250g"
-            calorie.text = "487kcal"
+            menu.text = "쌀밥 1공기"
+            weight.text = "210g"
+            calorie.text = "313kcal"
         }
         
     }

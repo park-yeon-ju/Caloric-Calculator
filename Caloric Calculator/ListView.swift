@@ -57,7 +57,7 @@ class ListView: UIViewController {
             catch let error as NSError {
                 //필요 없음
                 print("텍스트 파일 내용 확인 실패")
-                 //print("catch :: ", error.localizedDescription)
+                print("catch :: ", error.localizedDescription)
                  //return*/
                 
             }
@@ -96,6 +96,11 @@ extension ListView : UITableViewDataSource, UITableViewDelegate, UISearchBarDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \((indexPath as NSIndexPath).row).") //클릭이벤트
         
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "RecordView") as? RecordView
+         vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
+         vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
+        vcName?.menu = filteredData[((indexPath as NSIndexPath).row)]
+        self.present(vcName!, animated: true, completion: nil)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -134,32 +139,33 @@ extension ListView : UITableViewDataSource, UITableViewDelegate, UISearchBarDele
         present(refreshAlert, animated: true, completion: nil)
     }
     
-    //스토리보드 이동(Modal방식,Push방식)
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-        //개빡치네 왜 안될까
-        //이동할 스토리보드의 id저장.값이 변할 수 있는 것은 가변타입(var)로 한다. 고정값(상수)이면 let
-         var segue_id : String = ""
-         segue_id = segue.identifier!
-         
-         //identifier값으로 비교한다.//
-         print("segue id : [",segue_id+"] id")
-                 
-         //스토리보드의 id값을 가지고 이동할 스토리보드를 선택한다.//
-         if(segue_id == "RecordView")
-         {
-             let button = sender as? UIButton //현재 UIButton의 프로토콜로 왔으니 sender를 UIButton으로 캐스팅한다.//
-             let cell_position = button?.tag //버튼의 tag값을 가져온다.(tag: 선택된 셀의 row값)//
-                     
-             //UINavigation에서의 값 전달도 일반적으로 destination을 설정해서 한다.//
-             let destination = segue.destination as! RecordView //이동할 스토리보드를 정의//
-                 
-             print("move sotryboard...")
-                     
-             //이동할 스토리보드에 있는 값을 받을 변수설정(안드로이드에서는 해당 기능을 인텐트로 구현)//
-             //필터링 배열을 가지고 이용//
-             destination.menu = self.filteredData[cell_position!]}
-    }
+    /*//스토리보드 이동(Modal방식,Push방식)
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+         //개빡치네 왜 안될까
+         //이동할 스토리보드의 id저장.값이 변할 수 있는 것은 가변타입(var)로 한다. 고정값(상수)이면 let
+          var segue_id : String = ""
+          segue_id = segue.identifier!
+          
+          //identifier값으로 비교한다.//
+          print("segue id : [",segue_id+"] id")
+                  
+          //스토리보드의 id값을 가지고 이동할 스토리보드를 선택한다.//
+          if(segue_id == "RecordView")
+          {
+              let button = sender as? UIButton //현재 UIButton의 프로토콜로 왔으니 sender를 UIButton으로 캐스팅한다.//
+              let cell_position = button?.tag //버튼의 tag값을 가져온다.(tag: 선택된 셀의 row값)//
+                      
+              //UINavigation에서의 값 전달도 일반적으로 destination을 설정해서 한다.//
+              let destination = segue.destination as! RecordView //이동할 스토리보드를 정의//
+                  
+              print("move sotryboard...")
+                      
+              //이동할 스토리보드에 있는 값을 받을 변수설정(안드로이드에서는 해당 기능을 인텐트로 구현)//
+              //필터링 배열을 가지고 이용//
+              destination.menu = self.filteredData[cell_position!]}
+     }*/
+    
     
     override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(true)

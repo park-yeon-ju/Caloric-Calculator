@@ -15,8 +15,21 @@ class ViewController: UIViewController{
     @IBOutlet weak var addCal: UILabel!
     @IBOutlet weak var minusCal: UILabel!
     
-    var lC: String = "3000"
-    var aC: String = "0"
+    @IBOutlet weak var item2: UIImageView!
+    @IBOutlet weak var item2Txt1: UILabel!
+    @IBOutlet weak var item2Txt2: UILabel!
+    @IBOutlet weak var item2Txt3: UILabel!
+    @IBOutlet weak var item2Img: UIImageView!
+    
+    @IBOutlet weak var item3: UIImageView!
+    @IBOutlet weak var item3Txt1: UILabel!
+    @IBOutlet weak var item3Txt2: UILabel!
+    @IBOutlet weak var item3Txt3: UILabel!
+    @IBOutlet weak var item3Img: UIImageView!
+    
+    
+    var lC: String = "2513"
+    var aC: String = "487"
     var mC: String = "0"
     
     override func viewDidLoad() {
@@ -26,6 +39,43 @@ class ViewController: UIViewController{
         
         self.leftCal.text = lC
         self.addCal.text = aC
+        
+        if leftCal.text == "2513"
+        {
+            item2.layer.isHidden = true
+            item2Txt1.layer.isHidden = true
+            item2Txt2.layer.isHidden = true
+            item2Txt3.layer.isHidden = true
+            item2Img.layer.isHidden = true
+            
+            item3.layer.isHidden = true
+            item3Txt1.layer.isHidden = true
+            item3Txt2.layer.isHidden = true
+            item3Txt3.layer.isHidden = true
+            item3Img.layer.isHidden = true
+        }
+        else if leftCal.text == "2200"
+        {
+            item2.layer.isHidden = false
+            item2Txt1.layer.isHidden = false
+            item2Txt2.layer.isHidden = false
+            item2Txt3.layer.isHidden = false
+            item2Img.layer.isHidden = false
+            
+            item3.layer.isHidden = true
+            item3Txt1.layer.isHidden = true
+            item3Txt2.layer.isHidden = true
+            item3Txt3.layer.isHidden = true
+            item3Img.layer.isHidden = true
+        }
+        else
+        {
+            item3.layer.isHidden = false
+            item3Txt1.layer.isHidden = false
+            item3Txt2.layer.isHidden = false
+            item3Txt3.layer.isHidden = false
+            item3Img.layer.isHidden = false
+        }
     }
     
     //오늘 날짜 받아와서 MainView 날짜 갱신
@@ -36,6 +86,15 @@ class ViewController: UIViewController{
         let month = calendar.component(.month, from: date) //월
         let day = calendar.component(.day, from: date) //일
         dateTF.text = "\(year)년 \(month)월 \(day)일"
+    }
+    
+    func showItem2(){
+        
+        item2.layer.isHidden = false
+        item2Txt1.layer.isHidden = false
+        item2Txt2.layer.isHidden = false
+        item2Txt3.layer.isHidden = false
+        item2Img.layer.isHidden = false
     }
     
     

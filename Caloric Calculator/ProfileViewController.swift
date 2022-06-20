@@ -10,6 +10,11 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImgaeView: UIImageView!
+    @IBOutlet weak var age: UITextField!
+    @IBOutlet weak var sex: UITextField!
+    @IBOutlet weak var height: UITextField!
+    @IBOutlet weak var weight: UITextField!
+    @IBOutlet weak var goal: UITextField!
     
     
     // 사진: 이미지 피커 컨트롤러 생성
@@ -20,7 +25,11 @@ class ProfileViewController: UIViewController {
         
         pickerImage.delegate = self
 
-        // Do any additional setup after loading the view.
+        age.text = "24"
+        sex.text = "여"
+        height.text = "168"
+        weight.text = "56"
+        goal.text = "3000"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +40,7 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func profileImageBtn(_ sender: UIButton) {
-        let alert =  UIAlertController(title: "원하는 타이틀", message: "원하는 메세지", preferredStyle: .actionSheet)
+        let alert =  UIAlertController()
 
                 let library =  UIAlertAction(title: "사진앨범", style: .default) { (action) in self.openLibrary()
 
@@ -68,7 +77,7 @@ class ProfileViewController: UIViewController {
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "MainView")
                 vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
                 vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
-                self.present(vcName!, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 

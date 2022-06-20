@@ -25,9 +25,8 @@ class ChoicePopupView: UIViewController {
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "MainView") as? ViewController
          vcName?.modalPresentationStyle = .fullScreen //전체화면으로 보이게 설정
          vcName?.modalTransitionStyle = .crossDissolve //전환 애니메이션 설정
-        vcName?.lC = "2513"
-        vcName?.aC = "487"
- 
+        vcName?.lC = "2200"
+        vcName?.aC = "800"
          self.present(vcName!, animated: true, completion: nil)
         
     }
