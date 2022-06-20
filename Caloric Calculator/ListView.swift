@@ -136,7 +136,9 @@ extension ListView : UITableViewDataSource, UITableViewDelegate, UISearchBarDele
     
     //스토리보드 이동(Modal방식,Push방식)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*//이동할 스토리보드의 id저장.값이 변할 수 있는 것은 가변타입(var)로 한다. 고정값(상수)이면 let
+       
+        //개빡치네 왜 안될까
+        //이동할 스토리보드의 id저장.값이 변할 수 있는 것은 가변타입(var)로 한다. 고정값(상수)이면 let
          var segue_id : String = ""
          segue_id = segue.identifier!
          
@@ -156,10 +158,7 @@ extension ListView : UITableViewDataSource, UITableViewDelegate, UISearchBarDele
                      
              //이동할 스토리보드에 있는 값을 받을 변수설정(안드로이드에서는 해당 기능을 인텐트로 구현)//
              //필터링 배열을 가지고 이용//
-             destination.receivedTexts = self.filteredData[cell_position!]
-         }*/
-       
-        //개빡치네 왜 안될까
+             destination.menu = self.filteredData[cell_position!]}
     }
     
     override func viewDidAppear(_ animated: Bool) {

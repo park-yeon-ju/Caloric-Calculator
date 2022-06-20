@@ -11,25 +11,23 @@ class RecordView: UIViewController {
     @IBOutlet weak var photoCheckView: UIImageView!
     @IBOutlet weak var menuName: UILabel!
     
+    var menu: String = ""
     
     // 사진: 이미지 피커 컨트롤러 생성
     let pickerImage = UIImagePickerController()
-    
-    var receivedTexts: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         pickerImage.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
     //키보드 사용할 때 텍스트 필드 안가리게 해주는 메소드들
     override func viewWillAppear(_ animated: Bool) {
         self.addKeyboardNotifications()
-        
-        //메뉴이름
-        menuName.text = receivedTexts
+        menuName.text = menu
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.removeKeyboardNotifications()
