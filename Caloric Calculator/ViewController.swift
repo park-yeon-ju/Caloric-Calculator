@@ -8,6 +8,7 @@
 import UIKit
 import Photos
 import AVFoundation
+import CoreMotion
 
 class ViewController: UIViewController{
     @IBOutlet weak var dateTF: UILabel!
@@ -27,10 +28,13 @@ class ViewController: UIViewController{
     @IBOutlet weak var item3Txt3: UILabel!
     @IBOutlet weak var item3Img: UIImageView!
     
+    //예진 : 걸음수체크 클래스 변수 선언
+    let activityManager = CMMotionActivityManager()
+    let pedometer = CMPedometer()
     
     var lC: String = "2513"
     var aC: String = "487"
-    var mC: String = "0"
+    //var mC: String = "110"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +80,38 @@ class ViewController: UIViewController{
             item3Txt3.layer.isHidden = false
             item3Img.layer.isHidden = false
         }
+        
+        if CMMotionActivityManager.isActivityAvailable(){
+                    self.activityManager.startActivityUpdates(to: OperationQueue.main) {(data) in
+                        DispatchQueue.main.async {
+                            if let activity = data{
+                                if activity.running == true{
+                                    print("Running")
+                                }else if activity.walking == true{
+                                    print("Walking")
+                                }else if activity.automotive == true{
+                                    print("Automative")
+                                }
+                            }
+                        }
+                    }
+        }
+        
+        if CMPedometer.isStepCountingAvailable(){
+                    self.pedometer.startUpdates(from: Date()){ (data, error) in
+                        if error == nil{
+                            if let response = data{
+                                DispatchQueue.main.async {
+                                    var walkingCalorie: Double
+                                    walkingCalorie = response.numberOfSteps as! Double * 0.035
+                                    print("Number of Steps : \(response.numberOfSteps) , calorie calculation : \(walkingCalorie)")
+                                    self.minusCal.text = "\(110 + walkingCalorie)"
+                                }
+                            }
+                        }
+                    }
+        }
+            
     }
     
     //오늘 날짜 받아와서 MainView 날짜 갱신
